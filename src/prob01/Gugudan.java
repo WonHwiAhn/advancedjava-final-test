@@ -15,8 +15,19 @@ public class Gugudan {
 		//보기 생성
 		int[] answerNumbers = randomizeAnswers();
 		int loc = randomize( 0, 8 );
+		
+		//중복 체크 bool
+		boolean dup = false;
 		//생성된 보기에 랜덤한 위치에 정답을 삽입.
-		answerNumbers[ loc ] = resultNumber;
+		for(int i=0;i<answerNumbers.length;i++) {
+			if(answerNumbers[i] == resultNumber){
+				dup = true;
+				break;
+			}
+		}
+		
+		if(!dup)
+			answerNumbers[ loc ] = resultNumber;
 		
 		//질문 생성
 		System.out.println( l + " x " + r + " = ?" );
